@@ -1,6 +1,7 @@
 <center> <h3><strong>LOOPS</strong><h3> </center>  
 
 ## Components of a loop
+___Example loop:___
 ```py
 arr = ['a', 'b', 'c', 'd', 'e']
 while i < 5:
