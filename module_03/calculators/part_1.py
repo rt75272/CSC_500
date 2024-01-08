@@ -1,12 +1,13 @@
 from termcolor import colored
 #--------------------------------------------------------------------
-# Meal Cost Calculator
+# Part 1 - Meal Cost Calculator
 #
 # Usage:
 #   $ python part_1.py
 #   [follow prompt to complete program]
 #--------------------------------------------------------------------
-# Set the number of decimals for each cost.
+
+# Set the number of decimals for each cost, as a constant.
 NUM_DECIMALS = 2
 
 # Get the food cost from the user.
@@ -44,10 +45,13 @@ def calculate_total(food_cost, tip_amount, sales_tax_amount):
 # Output receipt to terminal.
 # Returns none.
 def printer(food_cost, tip_amount, sales_tax_amount, total_cost):
-    print("\nFood cost:\t" + "$" + str(food_cost))
-    print("Tip amount:\t" + "$" + str(tip_amount))
-    print("Sales tax:\t" + "$" + str(sales_tax_amount))
-    print(colored("Total cost:\t" + "$" + str(total_cost), "white", attrs=['bold']))
+    # List containing all of the required receipt information.
+    receipt_info = [food_cost, tip_amount, sales_tax_amount, total_cost]
+    # Outputs all the receipt info from the list.
+    print("\nFood cost:\t" + "$" + str(receipt_info[0]))
+    print("Tip amount:\t" + "$" + str(receipt_info[1]))
+    print("Sales tax:\t" + "$" + str(receipt_info[2]))
+    print(colored("Total cost:\t" + "$" + str(receipt_info[3]), "white", attrs=['bold']))
     print()
 
 # Main driver function.
@@ -61,3 +65,4 @@ def main():
 
 # Pushing the big red button.
 main()
+
