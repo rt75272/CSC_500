@@ -19,5 +19,6 @@ rain_info = {
 
 for i in range(num_years):
     for month in rain_info:
+        rain_info[month] = int(input(f"Enter the rainfall amount for {month}: "))
         print(rain_info[month])
     years.append(rain_info) # Adds entire year of rain info as one entry each.
