@@ -27,16 +27,22 @@ print(years)
 
 
 # Total number of months recorded. 
-def num_months():
-    return 0
+def Num_Months(years):
+    num_months = years * 12
+    return num_months
 
 # Total rainfall for all months recorded.
-def total_rainfall():
-    return 0
+def Total_Rainfall(years, num_years):
+    total_rain = 0
+    for i in range(num_years):
+        for month in years[i]:
+            total_rain += years[i][month]
+    return total_rain
 
 # Average rainfall over the course of all recorded months.
-def avg_rainfall():
-    return 0
+def Avg_Rainfall(total_rain, num_years):
+    avg_rain = total_rain / num_years   
+    return avg_rain
 
-def main():
+def Main():
     return 0
