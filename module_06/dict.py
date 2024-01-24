@@ -1,11 +1,18 @@
-# An array version.
-# Better for "standalone entries" 
-array_example_1 = ["bob", "frank", "joe"]
-array_example_2 = ["9436196", "1234567", "7654321"]
+"""""""""""""""""""""""""""""""""""""""""""""""
+Lists VS Dictionaries
 
-# Another array version.
-# Have to enter each one separately and in order.
-array_example = ["bob","9436196","frank","1234567","joe","7654321"]
+Comparing Python's lists and dictionaries
+
+Usage:
+  $ python dict.py
+"""""""""""""""""""""""""""""""""""""""""""""""
+
+# ---------------------------------------
+# SETUP
+# 
+# Starting a list and dictionary with 
+# the same data.
+# ---------------------------------------
 
 # Dictionary version.
 # Better for "pair entries".
@@ -16,29 +23,54 @@ dictionary_example = {
     "joe" : "7654321" 
 }
 
+# An list version.
+# Better for "standalone entries" 
+list_example_1 = ["bob", "frank", "joe"]
+list_example_2 = ["9436196", "1234567", "7654321"]
+
+# Another list version.
+# Have to enter each one separately and in order.
+list_example = ["bob","9436196","frank","1234567","joe","7654321"]
+
+# ---------------------------------------
 # INSERT
-# Array insert example.
-array_example.append("bobby")
-array_example.append("7457384")
+#
+# Comparing the insert process between
+# a list and a dictionary. 
+# ---------------------------------------
+# list insert example.
+list_example.append("bobby")
+list_example.append("7457384")
 
 # dictionary insert example.
 dictionary_example["bobby"] = "7457384"
 
 
+# ---------------------------------------
 # UPDATE
-# Array update example.
-array_example[-2] = "robert"
-array_example[-1] = "6457384" 
+#
+# Updating both data types with the same 
+# data.
+# ---------------------------------------
+# list update example.
+list_example[-2] = "robert"
+list_example[-1] = "6457384" 
 
 dictionary_example.update({"bobby" : "6457384"})
 # Updating a dictionary key is a bit different.
 dictionary_example["robert"] = dictionary_example.pop("bobby")
 
-print(dictionary_example)
-
-
+# ---------------------------------------
 # REMOVE
-array_example.remove("robert")
-array_example.remove("6457384")
+#
+# Taking off the last entry from each
+# data type. 
+# ---------------------------------------
+dictionary_example.pop("robert")
 
-print(array_example)
+list_example.remove("robert")
+list_example.remove("6457384")
+
+
+print(dictionary_example)
+print(list_example)
