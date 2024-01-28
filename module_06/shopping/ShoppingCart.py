@@ -34,11 +34,18 @@ class ShoppingCart:
         return total_cost
     
     # Outputs total of objects in cart.
+    # Returns none.
     def print_total():
         for item in cart_items:
             print(item)
         
     # Outputs each item's description.
+    # Returns none.
     def print_descriptions()
         for item in cart_items:
             print(item.item_name)
+        
+    # Main driver function.
+    # Returns none.
+    def main():
+        return 0
