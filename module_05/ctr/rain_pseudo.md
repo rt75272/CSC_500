@@ -43,3 +43,5 @@ function main:
     total_rain = total_rainfall(years, num_years)
     avg_rain = avg_rainfall(total_rain, num_months)
     printer(num_months, total_rain, avg_rain)
+
+    

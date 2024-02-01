@@ -20,3 +20,5 @@ function main:
     num_books = get_num_books()
     points = get_points(num_books)
     print("You earned {points}!")
+
+    
