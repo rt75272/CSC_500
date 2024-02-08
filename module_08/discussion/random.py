@@ -8,4 +8,15 @@ class ItemToBuy:
 
     def print_info(self):
         total = self.price * self.quantity
-        print(f"{self.name}")
+        print(
+            f"{self.quantity} {self.name} @ ${self.price} {self.description} = ${total}"
+        )
+
+class Cart:
+    # Default constructor
+    def __init__(self, customer_name="none"):
+        self.customer_name = customer_name
+        self.cart_items = []
+
+x = ItemToBuy("Cookies", 5.99, 2, "Food")
+x.print_info()
