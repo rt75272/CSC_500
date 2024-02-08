@@ -1,6 +1,6 @@
 class ItemToBuy:
     # Default constructor.
-    def __init__(self, name="none", price="0.0", quantity=0, description="none"):
+    def __init__(self, name="none", price=0.0, quantity=0, description="none"):
         self.name = name
         self.price = price
         self.quantity = quantity
@@ -37,11 +37,37 @@ class Cart:
             else:
                 print("Item not found in cart. Nothing removed.")
 
+    def show_cart(self):
+        for item in self.cart_items:
+            item.print_info()
+
+def print_menu(cart):
+    menu = ("\n\tMENU\n"
+            "a - Add item to cart\n"
+            "r - Remove item from cart\n"
+            "o - Output shopping cart\n"
+            "q - Quit shopping\n"
+    )
+    command = ''
+    while command != 'q':
+        print(menu)
+        if(command == 'a'):
+            print("Add item")
+        elif(command == 'r'):
+            print("Remove item")
+        elif(command == 'o'):
+            print("Output cart")
+        elif(command == 'q'):
+            print("Shutting down")
+        else:
+            print("Something blew up")
+
 
 # Pushing the big red button.
 if __name__ == "__main__":
     x = ItemToBuy("Cookies", 5.99, 2, "Food")
     cart = Cart("Bob")
     cart.add_item(x)
+    cart.show_cart()
     cart.remove_item(x.name)
     # x.print_info()
