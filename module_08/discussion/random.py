@@ -18,5 +18,30 @@ class Cart:
         self.customer_name = customer_name
         self.cart_items = []
 
-x = ItemToBuy("Cookies", 5.99, 2, "Food")
-x.print_info()
+    # Adding to our array of cart items.
+    def add_item(self, ItemToBuy):
+        if(ItemToBuy.name != "none"):
+            self.cart_items.append(ItemToBuy)
+            print(f"{ItemToBuy.name} added to cart")
+        else:
+            print(f"Nothing added to cart :(")
+
+    def remove_item(self, name="none"):
+        found = False
+        for item in self.cart_items:
+            if item.name == name:
+                self.cart_items.remove(item)
+                found = True
+                print(f"{name} has been removed")
+                break 
+            else:
+                print("Item not found in cart. Nothing removed.")
+
+
+# Pushing the big red button.
+if __name__ == "__main__":
+    x = ItemToBuy("Cookies", 5.99, 2, "Food")
+    cart = Cart("Bob")
+    cart.add_item(x)
+    cart.remove_item(x.name)
+    # x.print_info()
