@@ -38,23 +38,42 @@ class Cart:
                 print("Item not found in cart. Nothing removed.")
 
     def show_cart(self):
+        n = len(self.cart_items)
+        if n > 0:
+            for item in self.cart_items:
+                item.print_info()
+        else:
+            print("Your cart is empty :(")
+    
+    def get_total_cost(self):
+        cost = 0
         for item in self.cart_items:
-            item.print_info()
+            cost += item.price * item.quantity 
+        print("Total cost: $%.2f" % cost)   
+        
+    def change_quantity(self, name, quantity):
+        for item in self.cart_items:
+            if(item.name == name):
+                item.quantity = quantity
 
 def print_menu(cart):
     menu = ("\n\tMENU\n"
             "a - Add item to cart\n"
             "r - Remove item from cart\n"
+            "c - Change item quantity\n"
             "o - Output shopping cart\n"
             "q - Quit shopping\n"
     )
     command = ''
     while command != 'q':
         print(menu)
+        command = input("Choose an option:\n")
         if(command == 'a'):
             print("Add item")
         elif(command == 'r'):
             print("Remove item")
+        elif(command == 'c'):
+            print("Change item quantity")
         elif(command == 'o'):
             print("Output cart")
         elif(command == 'q'):
@@ -63,11 +82,20 @@ def print_menu(cart):
             print("Something blew up")
 
 
-# Pushing the big red button.
-if __name__ == "__main__":
+def main():
     x = ItemToBuy("Cookies", 5.99, 2, "Food")
+    y = ItemToBuy("Nikes", 199.99, 1, "Shoes")
     cart = Cart("Bob")
     cart.add_item(x)
+    cart.add_item(y)
+    cart.change_quantity("Cookies", 4)
     cart.show_cart()
+    cart.get_total_cost()
     cart.remove_item(x.name)
+    cart.show_cart()
+
+# Pushing the big red button.
+if __name__ == "__main__":
+    main()
+    # print("hell")
     # x.print_info()
