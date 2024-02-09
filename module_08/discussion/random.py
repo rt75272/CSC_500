@@ -7,7 +7,7 @@ class ItemToBuy:
         self.description = description        
 
     def print_info(self):
-        total = self.price * self.quantity
+        total = float(self.price) * float(self.quantity)
         print(
             f"{self.quantity} {self.name} @ ${self.price} {self.description} = ${total}"
         )
@@ -48,13 +48,18 @@ class Cart:
     def get_total_cost(self):
         cost = 0
         for item in self.cart_items:
-            cost += item.price * item.quantity 
+            cost += float(item.price) * float(item.quantity) 
         print("Total cost: $%.2f" % cost)   
         
     def change_quantity(self, name, quantity):
         for item in self.cart_items:
             if(item.name == name):
                 item.quantity = quantity
+    
+    def change_description(self, name, description):
+        for item in self.cart_items:
+            if(item.name == name):
+                item.description = description
 
 def print_menu(cart):
     menu = ("\n\tMENU\n"
@@ -70,12 +75,19 @@ def print_menu(cart):
         command = input("Choose an option:\n")
         if(command == 'a'):
             print("Add item")
+            name = input("Enter item name: ")
+            price = input("Enter item price: ")
+            quantity = input("Enter item quantity: ")
+            description = input("Enter item description: ")
+            new_item = ItemToBuy(name, price, quantity, description)
+            cart.add_item(new_item)
         elif(command == 'r'):
             print("Remove item")
         elif(command == 'c'):
             print("Change item quantity")
         elif(command == 'o'):
             print("Output cart")
+            cart.show_cart()
         elif(command == 'q'):
             print("Shutting down")
         else:
@@ -83,15 +95,18 @@ def print_menu(cart):
 
 
 def main():
-    x = ItemToBuy("Cookies", 5.99, 2, "Food")
-    y = ItemToBuy("Nikes", 199.99, 1, "Shoes")
+    # x = ItemToBuy("Cookies", 5.99, 2, "Food")
+    # y = ItemToBuy("Nikes", 199.99, 1, "Shoes")
+    # cart = Cart("Bob")
+    # cart.add_item(x)
+    # cart.add_item(y)
     cart = Cart("Bob")
-    cart.add_item(x)
-    cart.add_item(y)
+    print_menu(cart)
     cart.change_quantity("Cookies", 4)
+    cart.change_description("Cookies", "Death")
     cart.show_cart()
     cart.get_total_cost()
-    cart.remove_item(x.name)
+    cart.remove_item("Cookies")
     cart.show_cart()
 
 # Pushing the big red button.
